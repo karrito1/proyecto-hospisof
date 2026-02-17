@@ -7,7 +7,7 @@ try {
   conx = mysql.createPool({
     host: "localhost",
     user: "root",
-    database: "proyecto_hospisoft",
+    database: "hospisof",
     port: "3306",
     waitForConnections: true,
     connectionLimit: 10,

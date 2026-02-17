@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import pacientesCTR from "./src/routes/paciente/paciente.route.js";
+import citasCTR from "./src/routes/citas/cita.route.js";
+
 
 const app = express();
 
@@ -13,5 +15,6 @@ app.get("/", (req, res) => {
 
 // Rutas correctamente montadas
 app.use("/", pacientesCTR);
+app.use("/", citasCTR);
 
 export default app;
