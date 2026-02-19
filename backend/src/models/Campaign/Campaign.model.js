@@ -1,42 +1,42 @@
-// capa modelo para el modulo de paciente
+// capa modelo para el modulo de campaña
 
 import { conx } from "../baseDatos.js";
 
 const db = conx.promise();
 
-export const pacienteModel = {
+export const CampaignCTR = {
 
-  // Listar todos los pacientes
+  // Listar todas las campañas
   findAll: async () => {
-    const sql = "SELECT * FROM paciente ORDER BY telefono";
+    const sql = "SELECT * FROM campaña ORDER BY fecha DESC";
     const [rows] = await db.query(sql);
     return rows;
   },
 
-  // Buscar paciente por ID
+  // Buscar campaña por ID
   findById: async (id) => {
-    const sql = "SELECT * FROM paciente WHERE id = ?";
+    const sql = "SELECT * FROM campaña WHERE id = ?";
     const [rows] = await db.query(sql, [id]);
     return rows;
   },
 
-  // Crear paciente
+  // Crear campaña
   create: async (data) => {
-    const sql = "INSERT INTO paciente SET ?";
+    const sql = "INSERT INTO campaña SET ?";
     const [result] = await db.query(sql, [data]);
     return result;
   },
 
-  // Eliminar paciente
+  // Eliminar campaña
   delete: async (id) => {
-    const sql = "DELETE FROM paciente WHERE id = ?";
+    const sql = "DELETE FROM campaña WHERE id = ?";
     const [result] = await db.query(sql, [id]);
     return result;
   },
 
-  // Actualizar paciente
+  // Actualizar campaña
   update: async (id, data) => {
-    const sql = "UPDATE paciente SET ? WHERE id = ?";
+    const sql = "UPDATE campaña SET ? WHERE id = ?";
     const [result] = await db.query(sql, [data, id]);
     return result;
   }

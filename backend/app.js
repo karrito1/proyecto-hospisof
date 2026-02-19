@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import pacientesCTR from "./src/routes/paciente/paciente.route.js";
 import citasCTR from "./src/routes/citas/cita.route.js";
-
+import CampaignCTR from "./src/routes/Campaign/Campaign.route.js";
+import MedicamentoCTR from "./src/routes/medicmanentos/route.medicamento.js";
 
 const app = express();
 
@@ -16,5 +17,7 @@ app.get("/", (req, res) => {
 // Rutas correctamente montadas
 app.use("/", pacientesCTR);
 app.use("/", citasCTR);
+app.use("/", CampaignCTR);
+app.use("/", MedicamentoCTR);
 
 export default app;

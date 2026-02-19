@@ -17,7 +17,7 @@ export const getPacientes = async (req, res) => {
 // Obtener paciente por ID
 export const getPacienteId = async (req, res) => {
   try {
-    const results = await pacienteModel.finById(req.params.id);
+    const results = await pacienteModel.findById(req.params.id);
     res.json({ results });
   } catch (error) {
     res.status(500).json({
