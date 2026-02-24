@@ -17,7 +17,7 @@ router.get("/paciente/listarId/:id", pacientesCTR.getPacienteId);
 router.post("/paciente/crearPaciente", pacientesCTR.createPaciente);
 
 // Eliminar paciente por ID
-router.delete("/paciente/eliminarId/:id", pacientesCTR.deletepaciente);
+router.put("/paciente/eliminarId/:id", pacientesCTR.deletepaciente);
 
 // Actualizar paciente por ID
 router.put(

@@ -17,7 +17,7 @@ router.get("/Medicamento/listarId/:id", MedicamentoCTR.getMedicamentoId);
 router.post("/Medicamento/crearMedicamento", MedicamentoCTR.createMedicamento);
 
 // Eliminar medicamento por ID
-router.delete("/Medicamento/eliminarId/:id", MedicamentoCTR.deleteMedicamento);
+router.put("/Medicamento/eliminarId/:id", MedicamentoCTR.deleteMedicamento);
 
 // Actualizar medicamento por ID
 router.put(
