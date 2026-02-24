@@ -1,5 +1,5 @@
 // src/models/usuario.model.js
-import { conexion } from "./baseDatos.js";
+import { conexion } from "../baseDatos.js";
 const db = conexion.promise();
 
 export const usuarioModel = {
