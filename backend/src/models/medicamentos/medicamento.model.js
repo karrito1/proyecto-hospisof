@@ -5,7 +5,6 @@ import { conx } from "../baseDatos.js";
 const db = conx.promise();
 
 export const medicamentoModel = {
-
   // Listar todos los medicamentos
   findAll: async () => {
     const sql = "SELECT * FROM medicamento ORDER BY nombre";
@@ -29,16 +28,15 @@ export const medicamentoModel = {
 
   // Eliminar medicamento
   delete: async (id) => {
-    const sql = "DELETE FROM medicamento WHERE id = ?";
-    const [result] = await db.query(sql, [id]);
+    const estadoP = "inactivo";
+    const sql = "UPDATE medicamento SET estado =? WHERE id = ?";
+    const [result] = await db.query(sql, [estadoP, id]);
     return result;
   },
-
   // Actualizar medicamento
   update: async (id, data) => {
     const sql = "UPDATE medicamento SET ? WHERE id = ?";
     const [result] = await db.query(sql, [data, id]);
     return result;
-  }
-
+  },
 };

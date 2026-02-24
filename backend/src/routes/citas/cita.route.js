@@ -17,12 +17,9 @@ router.get("/cita/listarId/:id", citasCTR.getCitaId);
 router.post("/cita/crearCita", citasCTR.createCita);
 
 // Eliminar cita por ID
-router.delete("/cita/eliminarId/:id", citasCTR.deleteCita);
+router.put("/cita/eliminarId/:id", citasCTR.deleteCita);
 
 // Actualizar cita por ID
-router.put(
-  "/cita/actualizarCita/:id",
-  citasCTR.updateCita
-);
+router.put("/cita/actualizarCita/:id", citasCTR.updateCita);
 
 export default router;

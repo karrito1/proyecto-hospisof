@@ -29,11 +29,11 @@ export const citaModel = {
   },
 
   // Eliminar cita
-  delete: async (id) => {
-    const sql = "DELETE FROM cita WHERE id = ?";
-    const [result] = await db.query(sql, [id]);
-    return result;
-  },
+ delete: async (id) => {
+  const sql = "UPDATE cita SET estado ='cancelda' WHERE id = ?";
+  const [result] = await db.query(sql, [ id]);
+  return result;
+},
 
   // Actualizar cita
   update: async (id, data) => {
