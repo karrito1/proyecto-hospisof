@@ -3,6 +3,7 @@ import cors from "cors";
 import pacientesCTR from "./src/routes/paciente.route.js";
 import citasCTR from "./src/routes/cita.route.js";
 import MedicamentoCTR from "./src/routes/medicamento.route.js";
+import usuarioCTR from "./src/routes/usuario.route.js";
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.get("/", (req, res) => {
 app.use("/", pacientesCTR);
 app.use("/", citasCTR);
 app.use("/", MedicamentoCTR);
+app.use("/", usuarioCTR);
 
 export default app;
