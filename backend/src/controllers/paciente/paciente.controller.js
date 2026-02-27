@@ -28,19 +28,33 @@ export const getPacienteId = async (req, res) => {
 
 // Crear paciente
 export const createPaciente = async (req, res) => {
-  const data = {
-    NumeroDocumento: req.body.NumeroDocumento,
-    fechaNacimiento: req.body.fechaNacimiento,
-    nombre: req.body.nombre,
-    correo: req.body.correo,
-    telefono: req.body.telefono,
-  };
+  const { NumeroDocumento, fechaNacimiento, nombre, correo, telefono } = req.body;
+
+  // Validación básica
+  if (!NumeroDocumento || !fechaNacimiento || !nombre || !correo) {
+    return res.status(400).json({
+      error: "Todos los campos obligatorios deben ser enviados",
+    });
+  }
 
   try {
+    const data = {
+      NumeroDocumento,
+      fechaNacimiento,
+      nombre,
+      correo,
+      telefono,
+    };
+
     const results = await pacienteModel.create(data);
-    res.json({ results });
+
+    return res.status(201).json({
+      message: "Paciente creado correctamente",
+      results,
+    });
+
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       error: "Ocurrió un error al insertar paciente",
     });
   }
