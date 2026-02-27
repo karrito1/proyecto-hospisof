@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
-import pacientesCTR from "./src/routes/paciente/paciente.route.js";
-import citasCTR from "./src/routes/citas/cita.route.js";
-import MedicamentoCTR from "./src/routes/medicmanentos/route.medicamento.js";
+import pacientesCTR from "./src/routes/paciente.route.js";
+import citasCTR from "./src/routes/cita.route.js";
+import MedicamentoCTR from "./src/routes/medicamento.route.js";
 
 const app = express();
 

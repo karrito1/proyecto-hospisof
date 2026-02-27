@@ -1,8 +1,7 @@
 // controlador para citas
 
-import { citaModel } from "../../models/citas/cita.model.js";
+import { citaModel } from "../models/cita.model.js";
 
-// Obtener todas las citas
 export const getCitas = async (req, res) => {
   try {
     const results = await citaModel.findAll();
@@ -14,7 +13,6 @@ export const getCitas = async (req, res) => {
   }
 };
 
-// Obtener cita por ID
 export const getCitaId = async (req, res) => {
   try {
     const results = await citaModel.findById(req.params.id);
@@ -26,7 +24,6 @@ export const getCitaId = async (req, res) => {
   }
 };
 
-// Crear cita
 export const createCita = async (req, res) => {
   const { fecha, paciente_id, usuario_id } = req.body;
 
@@ -34,17 +31,14 @@ export const createCita = async (req, res) => {
 
   const estadosValidos = ["programada", "cancelada", "atendida"];
 
-  // Validar campos obligatorios
   if (!fecha || !estado || !paciente_id || !usuario_id) {
     return res.status(400).json({
       error: "Todos los campos son obligatorios",
     });
   }
 
-  // Convertir estado a minúsculas y quitar espacios
   estado = estado.toLowerCase().trim();
 
-  // Validar estado
   if (!estadosValidos.includes(estado)) {
     return res.status(400).json({
       error: "Estado no válido. Debe ser: programada, cancelada o atendida",
@@ -72,7 +66,6 @@ export const createCita = async (req, res) => {
   }
 };
 
-// Eliminar cita
 export const deleteCita = async (req, res) => {
   try {
     const results = await citaModel.delete(req.params.id);
@@ -84,7 +77,6 @@ export const deleteCita = async (req, res) => {
   }
 };
 
-// Actualizar cita
 export const updateCita = async (req, res) => {
   try {
     const results = await citaModel.update(req.params.id, req.body);

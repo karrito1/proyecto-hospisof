@@ -1,8 +1,6 @@
 // controlador para paciente
+import { pacienteModel } from "../models/paciente.model.js";
 
-import { pacienteModel } from "../../models/paciente/paciente.model.js";
-
-// Obtener todos los pacientes
 export const getPacientes = async (req, res) => {
   try {
     const results = await pacienteModel.findAll();
@@ -14,24 +12,21 @@ export const getPacientes = async (req, res) => {
   }
 };
 
-// Obtener paciente por ID
 export const getPacienteId = async (req, res) => {
   try {
     const results = await pacienteModel.findById(req.params.id);
     res.json({ results });
   } catch (error) {
-    
     res.status(500).json({
       error: "Error al buscar paciente por ID" + error,
     });
   }
 };
 
-// Crear paciente
 export const createPaciente = async (req, res) => {
-  const { NumeroDocumento, fechaNacimiento, nombre, correo, telefono } = req.body;
+  const { NumeroDocumento, fechaNacimiento, nombre, correo, telefono } =
+    req.body;
 
-  // Validación básica
   if (!NumeroDocumento || !fechaNacimiento || !nombre || !correo) {
     return res.status(400).json({
       error: "Todos los campos obligatorios deben ser enviados",
@@ -53,7 +48,6 @@ export const createPaciente = async (req, res) => {
       message: "Paciente creado correctamente",
       results,
     });
-
   } catch (error) {
     return res.status(500).json({
       error: "Ocurrió un error al insertar paciente",
@@ -61,7 +55,6 @@ export const createPaciente = async (req, res) => {
   }
 };
 
-// Eliminar paciente
 export const deletepaciente = async (req, res) => {
   try {
     const results = await pacienteModel.delete(req.params.id);
@@ -73,7 +66,6 @@ export const deletepaciente = async (req, res) => {
   }
 };
 
-// Actualizar paciente
 export const updatepaciente = async (req, res) => {
   try {
     const results = await pacienteModel.update(req.params.id, req.body);
