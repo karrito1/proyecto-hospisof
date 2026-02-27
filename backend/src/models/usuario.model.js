@@ -14,7 +14,7 @@ export const usuarioModel = {
     return rows;
   },
   delete: async (id) => {
-    const sql = "DELETE FROM usuario WHERE id = ?";
+    const sql = "UPDATE usuario SET estado = 'inactivo' FROM usuario WHERE id = ?";
     const [rows] = await db.query(sql, [id]);
     return rows;
   },

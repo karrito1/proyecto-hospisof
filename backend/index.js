@@ -5,5 +5,5 @@ import app from "./app.js";
 const port = 3000 || process.env.port;
 
 app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
+  console.log(`Servidor corriendo en http://localhost:${port}/usuario/listarTodos`);
 });
