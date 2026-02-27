@@ -1,9 +1,9 @@
 // src/models/baseDatos.js
 import mysql from "mysql2";
 
-let conexion;
+let conx;
 try {
-  conexion = mysql.createPool({
+  conx = mysql.createPool({
     host: "localhost",
     user: "root",
     database: "proyecto_hospisoft",
@@ -14,4 +14,4 @@ try {
 } catch (error) {
   console.log(`Ha ocurrido un error en la conexión: ${error.message}`);
 }
-export { conexion };
+export { conx };

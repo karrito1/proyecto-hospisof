@@ -1,6 +1,6 @@
 // src/models/usuario.model.js
-import { conexion } from "../baseDatos.js";
-const db = conexion.promise();
+import { conx } from "./baseDatos.js";
+const db = conx.promise();
 
 export const usuarioModel = {
   create: async (data) => {

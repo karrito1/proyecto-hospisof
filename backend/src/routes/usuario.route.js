@@ -5,7 +5,7 @@ const router = Router();
 router.post("/usuario/crear", usuarioController.createUsuario);
 router.put("/usuario/editar/:id", usuarioController.updateUsuario);
 router.delete("/usuario/eliminar/:id", usuarioController.deleteUsuario);
-router.get("/usuario/listartodos", usuarioController.getUsuarios);
+router.get("/usuario/listarTodos", usuarioController.getUsuarios);
 router.get("/usuario/listarporid/:id", usuarioController.getUsuarioById);
 
 export default router;

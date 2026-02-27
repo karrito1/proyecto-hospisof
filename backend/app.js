@@ -1,8 +1,9 @@
 import express from "express";
 import cors from "cors";
-
-import usuarioRutas from "./src/routes/usuario.route.js";
-import pacientesCTR from "./src/routes/paciente/paciente.route.js";
+import usuarioCTR from "./src/routes/usuario.route.js";
+import pacientesCTR from "./src/routes/paciente.route.js";
+import citasCTR from "./src/routes/cita.route.js";
+import MedicamentoCTR from "./src/routes/medicamento.route.js";
 
 const app = express();
 
@@ -13,8 +14,9 @@ app.get("/", (req, res) => {
   res.status(200).send("API Encendida");
 });
 
-// Montaje de rutas
-app.use("/api/usuarios", usuarioRutas);
-app.use("/api/pacientes", pacientesCTR);
+app.use("/", usuarioCTR);
+app.use("/", pacientesCTR);
+app.use("/", citasCTR);
+app.use("/", MedicamentoCTR);
 
 export default app;

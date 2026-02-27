@@ -1,20 +1,7 @@
-import express from "express";
-import cors from "cors";
+import app from "./app.js";
 
-import usuarioRutas from "./src/routes/usuario/usuario.route.js";
-import pacientesCTR from "./src/routes/paciente/paciente.route.js";
+const PORT = process.env.PORT || 3000;
 
-const app = express();
-
-app.use(express.json());
-app.use(cors());
-
-app.get("/", (req, res) => {
-  res.status(200).send("API Encendida");
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
-
-// Montaje de rutas
-app.use("/api/usuarios", usuarioRutas);
-app.use("/api/pacientes", pacientesCTR);
-
-export default app;
