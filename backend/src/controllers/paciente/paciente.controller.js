@@ -20,6 +20,7 @@ export const getPacienteId = async (req, res) => {
     const results = await pacienteModel.findById(req.params.id);
     res.json({ results });
   } catch (error) {
+    
     res.status(500).json({
       error: "Error al buscar paciente por ID" + error,
     });
